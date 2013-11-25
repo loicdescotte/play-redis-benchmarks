@@ -1,8 +1,5 @@
-gatling-maven-plugin-demo
-=========================
+## Gatling load tests
 
-Simple showcase of a maven project using the gatling-maven-plugin.
+To run the load tests, simply execute the following command :
 
-To test it out, simply execute the following command :
-
-    $mvn gatling:execute -Dgatling.simulationClass=basic.BasicExampleSimulation
+    $mvn test
