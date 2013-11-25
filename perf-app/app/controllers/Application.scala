@@ -20,14 +20,14 @@ object Application extends Controller {
   }
 
   def query(q: String) = Action {
-  	Ok("param : " + q)
+    Ok("param : " + q)
   }
 
   def asyncQuery(q: String) = Action.async {
     implicit val context = Akka.system.dispatchers.lookup("non-blocking-pool")
     val asyncResult = Future {"param : " + q}
     asyncResult.map(result =>   
-        Ok(result)
+      Ok(result)
     )
   }
 
@@ -40,7 +40,7 @@ object Application extends Controller {
 
   def blockingRedisQuery(q: String) = Action { 
     val result = Await.result(redis.get(q), 10 seconds).map(_.utf8String).getOrElse("not found")
-  	Ok(result) 
+    Ok(result) 
   }
   
 }
