@@ -16,7 +16,7 @@ class SimpleSimulation extends Simulation {
 		"X-Requested-With" -> "XMLHttpRequest")
 
 	val contextScn = scenario("simple")
-		.repeat(100){
+		.repeat(20){
 		exec(
 			http("request_simple")
 				.get("/query?q=toto")

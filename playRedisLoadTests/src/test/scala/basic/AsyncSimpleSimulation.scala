@@ -16,7 +16,7 @@ class AsyncSimpleSimulation extends Simulation {
 		"X-Requested-With" -> "XMLHttpRequest")
 
 	val contextScn = scenario("asyncSimple")
-		.repeat(100){
+		.repeat(20){
 		exec(
 			http("request_async_simple")
 				.get("/asyncQuery?q=toto")
