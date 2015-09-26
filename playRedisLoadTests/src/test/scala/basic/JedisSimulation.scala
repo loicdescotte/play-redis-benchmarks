@@ -1,12 +1,11 @@
 package basic
 
-import com.excilys.ebi.gatling.core.Predef._
-import com.excilys.ebi.gatling.http.Predef._
-import bootstrap._
+import io.gatling.core.Predef._
+import io.gatling.http.Predef._
 
 class JedisSimulation extends Simulation {
 
-	val httpConf = httpConfig
+	val httpConf = http
 		.baseURL("http://" + Conf.host + ":" + Conf.port)
 		.disableFollowRedirect
 
@@ -19,13 +18,13 @@ class JedisSimulation extends Simulation {
 		.repeat(20){
 		exec(
 			http("request_jedis")
-				.get("/jedisQuery?q=toto")
+				.get("/jedisScalaQuery?q=toto")
 				.headers(headers)
 				.check(status.is(200)))
 		}	
 	
 	setUp(
-		productsScn.users(500).ramp(10).protocolConfig(httpConf)
+		productsScn.inject(atOnceUsers(500)).protocols(httpConf)
 	)
 }
 
