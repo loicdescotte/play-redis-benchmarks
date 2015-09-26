@@ -17,6 +17,9 @@ public class ApplicationJava extends Controller {
     Jedis j = p.getResource();
     String r = j.get(q);
     p.returnResource(j);
+    if (r == null){
+      r = "not found";
+    }
     return ok(r);
   }
   
