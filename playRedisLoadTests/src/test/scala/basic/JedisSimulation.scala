@@ -18,7 +18,7 @@ class JedisSimulation extends Simulation {
 		.repeat(20){
 		exec(
 			http("request_jedis")
-				.get("/jedisScalaQuery?q=toto")
+				.get("/jedisQuery?q=toto")
 				.headers(headers)
 				.check(status.is(200)))
 		}	
