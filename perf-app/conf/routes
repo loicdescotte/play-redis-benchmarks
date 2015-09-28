@@ -8,7 +8,7 @@ GET     /query                      controllers.Application.query(q: String)
 GET     /asyncQuery                 controllers.Application.asyncQuery(q: String)
 GET     /asyncRedisQuery            controllers.Application.asyncRedisQuery(q: String)
 GET     /blockingRedisQuery         controllers.Application.blockingRedisQuery(q: String)
-GET     /jedisQuery         		controllers.ApplicationJava.query(q: String)
+GET     /jedisQuery         		    controllers.ApplicationJava.query(q: String)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

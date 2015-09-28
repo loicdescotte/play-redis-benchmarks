@@ -1,12 +1,11 @@
 package basic
 
-import com.excilys.ebi.gatling.core.Predef._
-import com.excilys.ebi.gatling.http.Predef._
-import bootstrap._
+import io.gatling.core.Predef._
+import io.gatling.http.Predef._
 
 class AsyncSimpleSimulation extends Simulation {
 
-	val httpConf = httpConfig
+	val httpConf = http
 		.baseURL("http://" + Conf.host + ":" + Conf.port)
 		.disableFollowRedirect
 
@@ -26,7 +25,7 @@ class AsyncSimpleSimulation extends Simulation {
 	
 	
 	setUp(		
-		contextScn.users(500).ramp(10).protocolConfig(httpConf)
+		contextScn.inject(atOnceUsers(500)).protocols(httpConf)
 	)
 }
 
